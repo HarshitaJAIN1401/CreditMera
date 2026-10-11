@@ -1,0 +1,31 @@
+# Git & VCS
+.git/
+.gitignore
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+env/
+venv/
+
+# Environment files with secrets
+.env
+.env.*
+!.env.production.example
+
+# Node / Frontend artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Local data & logs
+storage_data/
+*.log
+scratch/
+tests/
