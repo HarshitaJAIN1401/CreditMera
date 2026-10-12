@@ -31,7 +31,9 @@ def get_url() -> str:
         url = x_args["url"]
     else:
         url = os.getenv("DATABASE_URL") or settings.DATABASE_URL
-    if url.startswith("postgresql://"):
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql+psycopg2://", 1)
+    elif url.startswith("postgresql://"):
         url = url.replace("postgresql://", "postgresql+psycopg2://", 1)
     return url
 
