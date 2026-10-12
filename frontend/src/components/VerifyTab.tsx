@@ -19,6 +19,7 @@ import { useTranslation } from '../i18n/I18nContext';
 import {
   verifyImage,
   compareImagesSimilarity,
+  API_BASE_URL,
 } from '../services/api';
 import type {
   VerificationResponse,
@@ -163,7 +164,7 @@ export const VerifyTab: React.FC<VerifyTabProps> = ({
       // 2. If matched an asset and similarity is enabled, run perceptual comparison against registered image
       if (enableSimilarityCheck && verifyRes.extracted_asset_id) {
         try {
-          const registeredImageUrl = `/api/v1/assets/${verifyRes.extracted_asset_id}/download/watermarked`;
+          const registeredImageUrl = `${API_BASE_URL}/api/v1/assets/${verifyRes.extracted_asset_id}/download/watermarked`;
           const regRes = await fetch(registeredImageUrl);
           if (regRes.ok) {
             const regBlob = await regRes.blob();
