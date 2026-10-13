@@ -8,7 +8,8 @@ import subprocess
 from pathlib import Path
 
 # 1. Resolve test database password from .env.local
-env_path = Path(r"E:\CreditMera project dip\CreditMera\.env.local")
+ROOT_DIR = Path(__file__).resolve().parent.parent
+env_path = ROOT_DIR / ".env.local"
 lines = env_path.read_text(encoding="utf-8").splitlines()
 password = None
 for line in lines:
@@ -30,14 +31,14 @@ env = os.environ.copy()
 env["DATABASE_URL"] = db_url
 env["ENVIRONMENT"] = "development"
 env["STORAGE_BACKEND"] = "local"
-env["PYTHONPATH"] = str(Path(r"E:\CreditMera project dip\CreditMera\backend"))
+env["PYTHONPATH"] = str(ROOT_DIR / "backend")
 
 print("=" * 75)
 print(f"STARTING LIVE BACKEND SERVER ON PORT {test_port}")
 print(f"Target Database: {target_db} (PostgreSQL 16)")
 print("=" * 75)
 
-backend_dir = Path(r"E:\CreditMera project dip\CreditMera\backend")
+backend_dir = ROOT_DIR / "backend"
 proc = subprocess.Popen(
     [
         sys.executable,

@@ -3,11 +3,33 @@
 > **"Your Image. Your Credit."**  
 > *An International Image Ownership, Watermarking, Verification, and Attribution Platform.*
 
+[![Live Web Application](https://img.shields.io/badge/Live%20App-creditmera--1.onrender.com-brightgreen?style=for-the-badge&logo=render)](https://creditmera-1.onrender.com)
+[![Live Backend API](https://img.shields.io/badge/Backend%20API-creditmera.onrender.com-blue?style=for-the-badge&logo=fastapi)](https://creditmera.onrender.com)
+[![API Documentation](https://img.shields.io/badge/Swagger-OpenAPI%20Docs-informational?style=for-the-badge&logo=swagger)](https://creditmera.onrender.com/docs)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
 **Academic Degree:** Bachelor of Technology (B.Tech) in Computer Science & Engineering (CSE)  
 **Author:** Harshita Jain  
-**Repository:** [https://github.com/HarshitaJAIN1401/CreditMera](https://github.com/HarshitaJAIN1401/CreditMera)  
-**Local Project Path:** `E:\CreditMera project dip\CreditMera`  
+**Official Repository:** [https://github.com/HarshitaJAIN1401/CreditMera](https://github.com/HarshitaJAIN1401/CreditMera)  
+**Live Web Application:** [https://creditmera-1.onrender.com](https://creditmera-1.onrender.com)  
+**Live Backend API:** [https://creditmera.onrender.com](https://creditmera.onrender.com)  
+**Interactive API Docs:** [https://creditmera.onrender.com/docs](https://creditmera.onrender.com/docs)  
 **Current Platform Version:** 1.0.0 (Core Engine v2.4 / Algorithm `v1.0-dct-svd`)  
+
+---
+
+## 🌐 Live Cloud Deployment
+
+CreditMera is deployed and actively running in production on Render PaaS:
+
+| Service | Technology | Production URL | Description / Probe |
+| :--- | :--- | :--- | :--- |
+| **Web Application (Frontend)** | React 18 + Vite SPA | [https://creditmera-1.onrender.com](https://creditmera-1.onrender.com) | Main user interface: Protect & Embed wizard, Verify & Inspect, Asset Vault, Robustness Lab, Global Cases |
+| **Backend REST API** | FastAPI + Python 3.13 | [https://creditmera.onrender.com](https://creditmera.onrender.com) | Asynchronous DIP watermarking engine, SVD decomposition, and cryptographic validation |
+| **Interactive API Documentation** | Swagger / OpenAPI | [https://creditmera.onrender.com/docs](https://creditmera.onrender.com/docs) | Interactive API console with endpoint schema specifications and test executor |
+| **Health Diagnostic Probe** | FastAPI Health Check | [https://creditmera.onrender.com/api/v1/health](https://creditmera.onrender.com/api/v1/health) | Live system health and diagnostic probe endpoint |
+
+> ℹ️ **Cold Start Note:** Free-tier cloud services spin down during periods of inactivity. If the service is waking from idle sleep, please allow ~30–50 seconds for the initial response. All subsequent operations run at full interactive speed.
 
 ---
 
@@ -182,7 +204,16 @@ graph TD
 
 ## 6. Quick Start & Setup Instructions
 
-### Option A: Single-Command Docker Deployment (Recommended)
+### Option A: Instant Access via Live Cloud Deployment (No Setup Required)
+
+Test and explore CreditMera immediately in the cloud without cloning or installing dependencies:
+1. **Open the Web Application:** [https://creditmera-1.onrender.com](https://creditmera-1.onrender.com)
+2. **Access Interactive API Docs:** [https://creditmera.onrender.com/docs](https://creditmera.onrender.com/docs)
+3. **Verify API Health:** [https://creditmera.onrender.com/api/v1/health](https://creditmera.onrender.com/api/v1/health)
+
+---
+
+### Option B: Single-Command Docker Deployment (Recommended Local Stack)
 
 1. **Clone the repository:**
    ```bash
@@ -211,7 +242,7 @@ graph TD
 
 ---
 
-### Option B: Local Development Setup (Without Docker)
+### Option C: Local Development Setup (Without Docker)
 
 #### 1. Backend Setup
 ```bash
@@ -266,11 +297,12 @@ npm run build
 ```
 - **Results:** Clean compilation (`tsc -b && vite build`) in 804 ms with **0 errors**.
 
-### Translation Dictionary Parity Test
+### Translation Dictionary Parity Test (Vitest)
 ```bash
-python scratch/check_translations.py
+cd frontend
+npm test -- --run tests/international_features.test.ts
 ```
-- **Results:** 186 / 186 keys present with **0 missing** across all seven languages.
+- **Results:** 186 / 186 keys verified with **0 missing** across all seven supported languages (EN, HI, ES, FR, DE, JA, AR).
 
 ---
 
